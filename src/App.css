@@ -1,0 +1,18 @@
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+.menu-content {
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: hsl(0, 0%, 98%);
+  z-index: 1000;
+}
