@@ -9,8 +9,6 @@ import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const [featOpen, setFeatOpen] = useState(false);
-  // const [compOpen, setCompOpen] = useState(false);
   const [dropdowns, setDropdowns] = useState({
     features: false,
     company: false
@@ -20,14 +18,6 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
     console.log("Menu Open");
   };
-
-  // const toggleFeatures = () => {
-  //   setFeatOpen(!featOpen);
-  // };
-
-  // const toggleComp = () => {
-  //   setCompOpen(!compOpen);
-  // };
 
   const toggleDropdown = (dropdown) => {
       setDropdowns((prevState) => ({
