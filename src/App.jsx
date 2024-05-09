@@ -8,18 +8,18 @@ const App = () => {
         <Navbar />
         <div className="content sm:grid grid-cols-2 sm:m-10 ">
           <div className="order-last">
-            <img src="images/image-hero-mobile.png" alt="" />
+            <img src="images/image-hero-mobile.png" className="sm:h-3/4 md:h-auto" alt="" />
           </div>
           <div className="flex flex-col items-center justify-center m-4 text-aBlack gap-4 self-start sm:w-3/4 ">
-            <h2 className=" text-2xl sm:text-7xl font-bold my-2 ">Make remote work</h2>
-            <article className="text-center sm:text-justify  text-xl text-mGray my-2">
+            <h2 className=" text-2xl sm:text-2xl md:text-7xl font-bold my-2 ">Make remote work</h2>
+            <article className="text-center sm:text-justify text-xl sm:text-lg text-mGray my-2">
               Get your team in sync, no matter your location. Streamline
               processes, create team rituals, and watch productivity soar.
             </article>
             <button
               type="button"
               title="Learn More"
-              className="py-2 px-6 my-4 sm:self-start hover:bg-aWhite hover:text-aBlack duration-500 border-2 border-aBlack bg-aBlack text-aWhite rounded-xl"
+              className="py-2 px-6 my-4 sm:self-center md:self-start hover:bg-aWhite hover:text-aBlack duration-500 border-2 border-aBlack bg-aBlack text-aWhite rounded-xl"
             >
               Learn More
             </button>

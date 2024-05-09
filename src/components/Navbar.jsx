@@ -5,12 +5,13 @@ import { RiTeamFill } from "react-icons/ri";
 import { ImBlog } from "react-icons/im";
 import { IoCloseOutline } from "react-icons/io5";
 import "../index.css";
+import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   // const [featOpen, setFeatOpen] = useState(false);
   // const [compOpen, setCompOpen] = useState(false);
-  const [drops, setDrops] = useState({
+  const [dropdowns, setDropdowns] = useState({
     features: false,
     company: false
   })
@@ -28,10 +29,10 @@ const Navbar = () => {
   //   setCompOpen(!compOpen);
   // };
 
-  const toggleDrops = (drops) => {
-      setDrops((prevState) => ({
+  const toggleDropdown = (dropdown) => {
+      setDropdowns((prevState) => ({
         ...prevState,
-        [drops] : !prevState[drops]
+        [dropdown] : !prevState[dropdown]
       }));
   }
 
@@ -52,15 +53,12 @@ const Navbar = () => {
           </button>
 
           <div className="hidden sm:flex gap-14 text-mGray relative">
-            <div className="relative">
-              <a
-                href="#"
-                className="flex items-center gap-2 cursor-pointer hover:text-aBlack duration-300"
-                onClick={() => toggleDrops("features")}
-              >
-                Features {drops.features ? <IoIosArrowUp /> : <IoIosArrowDown />}
-              </a>
-              {drops.features && (
+
+            <Dropdown label="Features"
+            isOpen={dropdowns.features}
+            toggleDropdown={() => toggleDropdown("features")}>
+
+              {dropdowns.features && (
                 <ul className="absolute top-ful left-0 bg-aWhite rounded-md shadow-xl shadow-mGray p-2 w-auto ">
                   <li className="flex items-center gap-2 m-2">
                     <img src="/images/icon-todo.svg" alt="" />
@@ -80,16 +78,11 @@ const Navbar = () => {
                   </li>
                 </ul>
               )}
-            </div>
-            <div className="relative">
-              <a
-                href="#"
-                className="flex items-center gap-2 cursor-pointer hover:text-aBlack duration-300"
-                onClick={() => toggleDrops("company")}
-              >
-                Company{drops.company ? <IoIosArrowUp /> : <IoIosArrowDown />}
-              </a>
-              {drops.company && (
+            </Dropdown>
+            <Dropdown label="Company"
+            isOpen={dropdowns.company}
+            toggleDropdown={() => toggleDropdown("company")}>
+              {dropdowns.company && (
                 <ul className="absolute top-ful left-0 bg-aWhite rounded-md shadow-xl shadow-mGray p-2">
                   <li className="flex items-center gap-2 m-2">
                     <PiBooksBold className="text-amber-800" />
@@ -105,7 +98,8 @@ const Navbar = () => {
                   </li>
                 </ul>
               )}
-            </div>
+
+            </Dropdown>
             <a href="#" className="hover:text-aBlack duration-300">Carrers</a>
             <a href="#" className="hover:text-aBlack duration-300">About</a>
           </div>
@@ -131,11 +125,11 @@ const Navbar = () => {
               <div>
                 <h3
                   className="flex items-center gap-2"
-                  onClick={()=> toggleDrops("features")}
+                  onClick={()=> toggleDropdown("features")}
                 >
-                  Features {drops.features ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                  Features {dropdowns.features ? <IoIosArrowUp /> : <IoIosArrowDown />}
                 </h3>
-                {drops.features && (
+                {dropdowns.features && (
                   <ul className="">
                     <li className="flex items-center gap-2 m-2">
                       <img src="/images/icon-todo.svg" alt="" />
@@ -157,10 +151,10 @@ const Navbar = () => {
                 )}
               </div>
               <div>
-                <h3 className="flex items-center gap-2" onClick={()=> toggleDrops("company")}>
-                  Company {drops.company ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                <h3 className="flex items-center gap-2" onClick={()=> toggleDropdown("company")}>
+                  Company {dropdowns.company ? <IoIosArrowUp /> : <IoIosArrowDown />}
                 </h3>
-                {drops.company && (
+                {dropdowns.company && (
                   <ul className="">
                     <li className="flex items-center gap-2 m-2">
                       <PiBooksBold className="text-amber-800" />
